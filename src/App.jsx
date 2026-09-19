@@ -1,0 +1,42 @@
+import { useEffect, useState } from 'react';
+import { learning, journey, personalInfo, projects, skills } from './data/content';
+import { Arrow, ExternalLink, SectionHeading, SocialLinks } from './components';
+
+const navLinks = ['About', 'Skills', 'Projects', 'Journey', 'Contact'];
+
+function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 14); window.addEventListener('scroll', onScroll); return () => window.removeEventListener('scroll', onScroll); }, []);
+  const close = () => setOpen(false);
+  return <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+    <nav className="nav shell" aria-label="Main navigation">
+      <a className="brand" href="#top" onClick={close}>S<span>.</span></a>
+      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}><i /><i /></button>
+      <div className={`nav-panel ${open ? 'open' : ''}`}>
+        {navLinks.map(link => <a key={link} href={`#${link.toLowerCase()}`} onClick={close}>{link}</a>)}
+        <ExternalLink className="github-nav" href={personalInfo.github}>GitHub <Arrow /></ExternalLink>
+      </div>
+    </nav>
+  </header>;
+}
+
+function Terminal() { return <aside className="terminal reveal" aria-label="Developer introduction code sample"><div className="terminal-bar"><span /><span /><span /><b>about-me.js</b></div><pre><code><em>const</em> developer = {'{'}{`\n`}  name: <strong>'Saurabh'</strong>,{`\n`}  focus: [<strong>'frontend'</strong>, <strong>'full-stack'</strong>],{`\n`}  status: <strong>'always learning'</strong>{`\n`}{'}'};</code></pre><div className="terminal-prompt"><span>~</span> building with intent<span className="cursor">_</span></div></aside>; }
+
+function Hero() { return <section className="hero shell" id="top"><div className="hero-copy reveal"><p className="eyebrow">Hello, I’m Saurabh <span className="status-dot" /> </p><h1>Building my way from <em>frontend</em> to full-stack.</h1><p className="lede">I’m a BTech CSE (Data Science) student focused on creating thoughtful web experiences, improving my problem-solving skills, and learning how real applications come together.</p><div className="hero-actions"><a className="button primary" href="#projects">View projects <Arrow /></a><ExternalLink className="button secondary" href={personalInfo.github}>GitHub <Arrow /></ExternalLink><ExternalLink className="text-link" href={personalInfo.resume}>Resume ↓</ExternalLink></div><SocialLinks compact /></div><Terminal /><a className="scroll-cue" href="#about">Scroll to explore <span>↓</span></a></section>; }
+
+function About() { return <section id="about" className="section shell about"><SectionHeading eyebrow="01 / About" title="Curious by default. Intentional in practice." /><div className="about-grid reveal"><div><p>I’m a second-year Computer Science & Engineering student specializing in Data Science. I enjoy the steady work of turning an idea into a useful, well-considered interface.</p><p>My current foundation is in frontend development. I’m now expanding toward backend development and full-stack systems—one project, concept, and revision at a time.</p></div><aside className="focus-card"><p className="eyebrow">What I’m focused on now</p><div className="focus-path"><span>Frontend</span><i>→</i><span>Backend</span><i>→</i><span>Full stack</span><i>→</i><span>AI tools</span></div><small>Learning directions, not expertise claims.</small></aside></div></section>; }
+
+function Skills() { return <section id="skills" className="section shell"><SectionHeading eyebrow="02 / Toolkit" title="The tools I’m building with." copy="A practical foundation, with room to grow." /><div className="skills-grid">{skills.map(group => <article className="skill-group reveal" key={group.title}><div className="skill-title"><span>{group.icon}</span><h3>{group.title}</h3></div><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></article>)}</div></section>; }
+
+function Projects() { const featured = projects[0]; return <section id="projects" className="section shell"><SectionHeading eyebrow="03 / Selected work" title="Things I’m making and improving." copy="These project slots are intentionally ready for your verified work and links." /><article className="featured-project reveal"><div className="project-art"><span>01</span><div className="art-lines"><i /><i /><i /></div></div><div className="project-content"><p className="eyebrow">Featured project <b>TODO</b></p><h3>{featured.name}</h3><p>{featured.description}</p><p className="problem"><strong>Problem:</strong> {featured.problem}</p><div className="tags">{featured.technologies.map(item => <span key={item}>{item}</span>)}</div><div className="project-links"><ExternalLink href={featured.github}>Source <Arrow /></ExternalLink><ExternalLink href={featured.live}>Live demo <Arrow /></ExternalLink></div></div></article><div className="project-grid">{projects.slice(1).map((project, index) => <article className="project-card reveal" key={project.name}><span className="project-number">0{index + 2}</span><h3>{project.name}</h3><p>{project.description}</p><div className="tags">{project.technologies.map(item => <span key={item}>{item}</span>)}</div><div className="project-links"><ExternalLink href={project.github}>Source <Arrow /></ExternalLink><ExternalLink href={project.live}>Demo <Arrow /></ExternalLink></div></article>)}</div></section>; }
+
+function Journey() { return <section id="journey" className="section shell"><SectionHeading eyebrow="04 / Development journey" title="Progress, not a finish line." /><ol className="timeline">{journey.map((item, index) => <li className={`reveal ${item.current ? 'current' : ''}`} key={item.label}><span className="timeline-index">0{index + 1}</span><div><h3>{item.label}{item.current && <b>Current</b>}</h3><p>{item.text}</p></div></li>)}</ol></section>; }
+
+function CodingAndLearning() { return <><section className="section shell coding"><div className="coding-copy reveal"><p className="eyebrow">05 / Building in public</p><h2>The learning is part of the work.</h2><p>GitHub is where I document what I build, experiment with ideas, and improve in the open.</p><ExternalLink href={personalInfo.github} className="button secondary">Visit GitHub <Arrow /></ExternalLink></div><div className="coding-stats reveal"><div><span>Repositories</span><strong>—</strong><small>TODO: connect GitHub API</small></div><div><span>Coding activity</span><strong>—</strong><small>TODO: add verified profile links</small></div><div className="profile-list"><ExternalLink href="">LeetCode <Arrow /></ExternalLink><ExternalLink href="">GeeksforGeeks <Arrow /></ExternalLink></div></div></section><section className="section shell learning"><SectionHeading eyebrow="06 / Currently learning" title="Growing toward systems that work end to end." /><div className="learning-list">{learning.map((item, index) => <div className="reveal" key={item}><span>0{index + 1}</span><h3>{item}</h3><i>↗</i></div>)}</div></section></>; }
+
+function Contact() { const [copied, setCopied] = useState(false); const copyEmail = async () => { if (!personalInfo.email.startsWith('TODO')) { await navigator.clipboard.writeText(personalInfo.email); setCopied(true); setTimeout(() => setCopied(false), 1800); } }; return <section id="contact" className="contact"><div className="shell contact-inner reveal"><p className="eyebrow">07 / Contact</p><h2>Let’s build something.</h2><p>Have an internship opportunity, a project idea, or simply want to connect? I’d be happy to hear from you.</p><div className="contact-actions"><a className="button primary" href={`mailto:${personalInfo.email.startsWith('TODO') ? '' : personalInfo.email}`}>Send an email <Arrow /></a><button className="copy-email" onClick={copyEmail}>{copied ? 'Copied!' : 'Copy email'}</button></div><small className="todo-note">TODO: Add your email in <code>src/data/content.js</code> to enable contact links.</small></div></section>; }
+
+function Footer() { return <footer className="footer shell"><a className="brand" href="#top">S<span>.</span></a><p>Learning in public, building with care.</p><SocialLinks compact /><small>© {new Date().getFullYear()} Saurabh · Built with React</small></footer>; }
+
+export default function App() { return <><Navbar /><main><Hero /><About /><Skills /><Projects /><Journey /><CodingAndLearning /><Contact /></main><Footer /></>; }
