@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/content';
 import AsciiTerminal from '../components/AsciiTerminal';
+import SocialLinks from '../components/SocialLinks';
 
 export default function Hero() {
   const [now, setNow] = useState(() => new Date());
@@ -26,6 +27,7 @@ export default function Hero() {
       </div>
     </div>
     <p className="hero-copy">I’m a BTech CSE (Data Science) student interested in building thoughtful interfaces and learning through hands-on work.</p>
+    <SocialLinks />
     <AsciiTerminal />
   </section>;
 }
