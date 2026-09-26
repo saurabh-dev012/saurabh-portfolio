@@ -6,7 +6,7 @@ import { ArrowIcon, ExternalLink } from '../components/ExternalLink';
 function ActivityList({ title, entries, available }) {
   return <div className="waka-list">
     <h3>{title}</h3>
-    {available && entries.length ? <ul>{entries.map(({ name, time }) => <li key={name}><span>{name}</span><span>{time}</span></li>)}</ul> : <p>{available ? 'No recent activity' : '—'}</p>}
+    {available && entries.length ? <ul>{entries.map(name => <li key={name}>{name}</li>)}</ul> : <p>{available ? 'No recent activity' : '—'}</p>}
   </div>;
 }
 

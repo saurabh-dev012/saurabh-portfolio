@@ -37,7 +37,6 @@ body{background:var(--paper)}
 .waka-list h3{margin-bottom:6px}
 .waka-list ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:5px 13px}
 .waka-list li{font-size:.68rem;color:#5e6058;display:flex;gap:5px;align-items:baseline}
-.waka-list li span+span{font:400 .56rem var(--mono);color:#929087}
 .waka-list>p,.waka-fallback p{font-size:.68rem;color:var(--muted);margin:0}
 .waka-updated{margin:0 0 9px;font:400 .53rem var(--mono);color:#99958c}
 .waka-footer{padding:9px 0 12px;border-top:1px solid var(--line)}

@@ -39,7 +39,7 @@ function summarizeEntries(days, key) {
   return [...totals.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 4)
-    .map(([name, seconds]) => ({ name, time: formatTime(seconds) }));
+    .map(([name]) => name);
 }
 
 async function writeSnapshot(snapshot) {
