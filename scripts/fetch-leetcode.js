@@ -52,19 +52,6 @@ async function queryLeetCode(query, variables) {
   return payload.data;
 }
 
-async function addRecentDifficulties(problems) {
-  if (!problems.length) return problems;
-  const variables = Object.fromEntries(problems.map((problem, index) => [`slug${index}`, problem.slug]));
-  const fields = problems.map((_, index) => `problem${index}: question(titleSlug: $slug${index}) { difficulty }`).join('\n');
-  const declarations = problems.map((_, index) => `$slug${index}: String!`).join(', ');
-  const result = await queryLeetCode(`query RecentProblemDifficulties(${declarations}) { ${fields} }`, variables);
-  const validDifficulties = new Set(['Easy', 'Medium', 'Hard']);
-  return problems.map((problem, index) => {
-    const difficulty = result?.[`problem${index}`]?.difficulty;
-    return validDifficulties.has(difficulty) ? { ...problem, difficulty } : problem;
-  });
-}
-
 function parseCalendar(calendar) {
   if (typeof calendar !== 'string') return null;
   try {
@@ -128,6 +115,7 @@ function normalizeStats(profileData) {
     solved,
     totals,
     ...(ranking && ranking !== 5000001 ? { ranking } : {}),
+    ...(ranking === 5000001 ? { rankStatus: 'unranked' } : {}),
   };
 }
 
@@ -167,18 +155,12 @@ async function main() {
     ? recentResult.value?.recentAcSubmissionList ?? []
     : [];
   const seenProblems = new Set();
-  let recent = [];
+  const recent = [];
   for (const submission of recentSubmissions) {
     if (!submission?.title || !submission.titleSlug || seenProblems.has(submission.titleSlug)) continue;
     seenProblems.add(submission.titleSlug);
     recent.push({ title: submission.title, slug: submission.titleSlug, timestamp: toNumber(submission.timestamp) });
     if (recent.length === 5) break;
-  }
-
-  try {
-    recent = await addRecentDifficulties(recent);
-  } catch (error) {
-    console.warn('LeetCode problem difficulty details unavailable:', error);
   }
 
   const snapshot = {
