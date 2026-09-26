@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/content';
-import { ArrowIcon, ExternalLink } from '../components/ExternalLink';
+import AsciiTerminal from '../components/AsciiTerminal';
 
 export default function Hero() {
   const [now, setNow] = useState(() => new Date());
@@ -26,6 +26,6 @@ export default function Hero() {
       </div>
     </div>
     <p className="hero-copy">I’m a BTech CSE (Data Science) student interested in building thoughtful interfaces and learning through hands-on work.</p>
-    <div className="hero-actions"><a className="text-link" href="#projects">Projects <span aria-hidden="true">↓</span></a><ExternalLink className="text-link" href={personalInfo.github}>GitHub <ArrowIcon /></ExternalLink><ExternalLink className="text-link" href={personalInfo.wakatime}>WakaTime <ArrowIcon /></ExternalLink></div>
+    <AsciiTerminal />
   </section>;
 }
