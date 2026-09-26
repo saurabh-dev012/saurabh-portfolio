@@ -7,7 +7,7 @@ export function useLeetCode() {
     const controller = new AbortController();
     const dataUrl = `${import.meta.env.BASE_URL}leetcode.json`;
 
-    fetch(dataUrl, { signal: controller.signal, cache: 'no-store' })
+    fetch(dataUrl, { signal: controller.signal, cache: 'force-cache' })
       .then(response => response.ok ? response.json() : Promise.reject(new Error(`LeetCode snapshot returned HTTP ${response.status}`)))
       .then(data => {
         if (!controller.signal.aborted && data?.available) setState({ status: 'success', data });
