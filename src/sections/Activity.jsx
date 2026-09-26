@@ -23,7 +23,7 @@ export default function Activity() {
   return <section className="section page-shell" id="activity" aria-labelledby="activity-title">
     <div className="waka-panel" aria-live="polite">
       <div className="activity-header">
-        <h2 id="activity-title">wakatime.</h2>
+        <div className="service-heading-copy"><span className="service-kicker">05 <i>/</i> CODING ACTIVITY</span><h2 id="activity-title">wakatime.</h2></div>
         <ServiceProfileLink service="wakatime" href={personalInfo.wakatime} username="WakaTime profile" />
       </div>
       <div className="waka-summary-lines">

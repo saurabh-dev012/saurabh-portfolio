@@ -14,6 +14,10 @@ export const GITHUB_URL = personalInfo.github;
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/saurabh-pandey-685347384/';
 export const INSTAGRAM_URL = 'https://www.instagram.com/saurabhhh.1210?stkn=MXM2anJ4ZHI5MTJkaA%3D%3D';
 export const X_URL = 'https://x.com/saurabhp012';
+export const HASHNODE_USERNAME = 'saurabhdev06';
+export const HASHNODE_PROFILE_URL = `https://hashnode.com/@${HASHNODE_USERNAME}`;
+export const LEETCODE_USERNAME = 'Saurabh_Pandey12';
+export const LEETCODE_PROFILE_URL = `https://leetcode.com/u/${LEETCODE_USERNAME}/`;
 
 export const SOCIAL_LINKS = [
   { name: 'GitHub', url: GITHUB_URL, icon: 'github' },

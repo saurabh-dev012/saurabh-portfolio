@@ -62,7 +62,7 @@ export default function GitHub() {
   return <section className="section page-shell github-section" id="github" aria-labelledby="github-title">
     <div className="github-card">
       <div className="github-header">
-        <h2 id="github-title">github.</h2>
+        <div className="service-heading-copy"><span className="service-kicker">06 <i>/</i> OPEN SOURCE</span><h2 id="github-title">github.</h2></div>
         <ServiceProfileLink service="github" href={personalInfo.github} username={personalInfo.githubUsername} />
       </div>
       <div className="contribution-wrap">
