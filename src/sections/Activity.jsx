@@ -1,14 +1,6 @@
 import { useEffect, useState } from 'react';
-import SectionHeading from '../components/SectionHeading';
 import { personalInfo } from '../data/content';
-import { ArrowIcon, ExternalLink } from '../components/ExternalLink';
-
-function ActivityList({ title, entries, available }) {
-  return <div className="waka-list">
-    <h3>{title}</h3>
-    {available && entries.length ? <ul>{entries.map(name => <li key={name}>{name}</li>)}</ul> : <p>{available ? 'No recent activity' : '—'}</p>}
-  </div>;
-}
+import ServiceProfileLink from '../components/ServiceProfileLink';
 
 export default function Activity() {
   const [activity, setActivity] = useState(null);
@@ -25,23 +17,22 @@ export default function Activity() {
 
   const available = activity?.available === true;
   const waiting = activity === null;
+  const languages = activity?.languages?.length ? activity.languages.join(', ') : 'No recent language data';
+  const editors = activity?.editors?.length ? activity.editors.join(', ') : 'No recent editor data';
 
   return <section className="section page-shell" id="activity" aria-labelledby="activity-title">
-    <SectionHeading title="WakaTime" id="activity-title" />
     <div className="waka-panel" aria-live="polite">
-      {available ? <>
-        <dl className="waka-totals">
-          <div><dt>Today</dt><dd>{activity.today}</dd></div>
-          <div><dt>Yesterday</dt><dd>{activity.yesterday}</dd></div>
-          <div><dt>This week</dt><dd>{activity.week}</dd></div>
-        </dl>
-        <div className="waka-details">
-          <ActivityList title="Current editors" entries={activity.editors ?? []} available />
-          <ActivityList title="Recent languages" entries={activity.languages ?? []} available />
-        </div>
-        {activity.updatedAt && <p className="waka-updated">Updated {new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeStyle: 'short', timeZone: activity.timezone }).format(new Date(activity.updatedAt))}</p>}
-      </> : <div className="waka-fallback"><p>{waiting ? 'Loading coding activity…' : 'Coding activity is unavailable right now.'}</p></div>}
-      <div className="waka-footer"><ExternalLink href={personalInfo.wakatime}>Open WakaTime profile <ArrowIcon /></ExternalLink></div>
+      <div className="activity-header">
+        <h2 id="activity-title">wakatime.</h2>
+        <ServiceProfileLink service="wakatime" href={personalInfo.wakatime} username="WakaTime profile" />
+      </div>
+      <div className="waka-summary-lines">
+        {available ? <>
+          <p><strong>Coding Time:</strong> Today: {activity.today} · Yesterday: {activity.yesterday} · Week: {activity.week}</p>
+          <p><strong>Recent Languages:</strong> {languages}</p>
+          <p><strong>Current Editors:</strong> {editors}</p>
+        </> : <p>{waiting ? 'Loading coding activity…' : 'Coding activity is unavailable right now.'}</p>}
+      </div>
     </div>
   </section>;
 }

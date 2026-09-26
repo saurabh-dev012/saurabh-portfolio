@@ -135,3 +135,95 @@ body{background:var(--paper)}
   .nav-links>a:not(.nav-profile):hover{color:#82cdf5}
 }
 @media(max-width:480px){.nav-top .wordmark{font-size:.88rem}.nav-socials{font-size:.63rem;gap:10px}.nav-socials a{gap:4px}}
+
+/* Compact technical skills tile panel */
+.skills-section{width:min(var(--shell),calc(100% - 48px));margin-inline:auto;position:relative;padding-top:24px;padding-bottom:35px;border-bottom:1px solid var(--line)}
+.skills-section::after{content:"";position:absolute;bottom:0;left:0;right:0;height:7px;background:repeating-linear-gradient(135deg,rgba(156,166,181,.12) 0 2px,transparent 2px 7px)}
+.skills-section .section-heading{margin-bottom:18px}
+.skills-section .section-heading h2{font-size:1.42rem;letter-spacing:-.045em;color:#e8edf5}
+.skills-section .skill-grid{display:grid;grid-template-columns:repeat(8,40px);justify-content:start;gap:10px 12px}
+.skills-section .skill-item{width:40px;height:40px;padding:0;border:1px solid #303a4b;border-radius:9px;background:#202a39;display:grid;place-items:center;transition:transform .16s ease,border-color .16s ease,background-color .16s ease}
+.skills-section .skill-item:hover{transform:translateY(-2px);border-color:#82cdf5;background:#29394a}
+.skills-section .skill-icon{width:100%;height:100%;border:0;border-radius:inherit;background:transparent;display:grid;place-items:center;position:relative}
+.skills-section .skill-icon img{display:block;width:26px;height:26px;object-fit:contain;filter:grayscale(1) brightness(1.55);transition:filter .16s ease}
+.skills-section .skill-item:hover .skill-icon img{filter:grayscale(.2) brightness(1.25)}
+.skills-section .skill-fallback{display:none;font:600 .61rem var(--mono);color:#d0d6e0}
+.skills-section .skill-icon.is-fallback .skill-fallback{display:block}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.skills-section{width:calc(100% - 36px)}.skills-section .section-heading h2{font-size:1.28rem}.skills-section .skill-grid{grid-template-columns:repeat(6,40px)}}
+@media(max-width:480px){.skills-section{width:calc(100% - 32px);padding-top:21px;padding-bottom:24px}.skills-section .skill-grid{grid-template-columns:repeat(4,38px);gap:9px 10px}.skills-section .skill-item{width:38px;height:38px}.skills-section .skill-icon img{width:24px;height:24px}}
+
+/* Compact profile links for the activity and GitHub sections */
+.waka-footer{padding:0;border-top:1px dashed rgba(156,166,181,.2)}
+.waka-footer .service-profile-link{width:100%;font:inherit;color:#aab3c1;display:flex}
+.waka-footer .service-profile-link:hover{color:#82cdf5}
+.service-profile-link{min-height:40px;padding:8px 0;display:flex;align-items:center;justify-content:center;gap:9px;color:#aab3c1;font-size:.68rem;transition:color .16s ease}
+.service-profile-link:hover{color:#82cdf5}
+.service-profile-link>svg:first-child{width:16px;height:16px;flex:none;fill:currentColor}
+.service-profile-link.wakatime>svg:first-child{fill:none}
+.service-profile-arrow{width:14px;height:14px;flex:none}
+.github-footer{margin-top:0;border-top:1px dashed rgba(156,166,181,.2);border-bottom:1px dashed rgba(156,166,181,.2)}
+
+/* GitHub section arrangement */
+.github-card{overflow:hidden}
+.github-header{min-height:54px;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.github-header h2{margin:0;color:var(--ink);font-size:1.4rem;line-height:1.2;font-weight:600;letter-spacing:-.045em}
+.github-header .service-profile-link{min-height:34px;padding:0 2px 0 12px;justify-content:flex-end;white-space:nowrap}
+.github-section .contribution-wrap{padding:11px 16px 12px}
+.github-month-labels{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:center;min-height:20px;margin-bottom:6px;color:var(--ink);font-size:.65rem;font-weight:500}
+.github-month-labels span{text-align:center}
+.github-section .github-month-labels{grid-template-columns:repeat(var(--week-count),10px);column-gap:3px;width:max-content}
+.github-section .github-month-labels span{text-align:left;white-space:nowrap}
+.github-section .contribution-grid{display:grid;grid-template-columns:repeat(var(--week-count),10px);column-gap:3px;width:max-content}
+.github-section .contribution-calendar{display:block;margin:0 0 8px}
+.github-section .contribution-foot{align-items:center}
+.github-section{padding-top:0;padding-bottom:20px;border-top:0}
+.github-section .github-header{min-height:48px;padding:6px 16px}
+.github-section .contribution-wrap{padding:8px 16px 9px}
+.github-section .github-month-labels{min-height:18px;margin-bottom:4px}
+.github-section .calendar-scroll{padding-bottom:0}
+.github-section .contribution-calendar{margin-bottom:5px}
+.github-section .calendar-scroll{width:100%;padding-bottom:0}
+.github-section .github-month-labels{grid-template-columns:repeat(var(--week-count),minmax(10px,1fr));width:100%;min-width:var(--grid-min-width)}
+.github-section .contribution-calendar-link,.github-section .contribution-calendar,.github-section .contribution-grid{width:100%;min-width:var(--grid-min-width)}
+.github-section .contribution-grid{grid-template-columns:repeat(var(--week-count),minmax(10px,1fr))}
+.github-section .contribution-week{width:100%;justify-items:center}
+.github-section .contribution-foot{width:100%;justify-content:space-between}
+.github-section .chart-legend{white-space:nowrap}
+.hero-profile{width:100%;justify-content:space-between;gap:20px}
+.hero-identity{min-width:0;display:flex;align-items:center;gap:20px}
+.hero-name-row{display:flex;align-items:center;gap:9px}
+.hero-name-row h1{font-size:clamp(2rem,5vw,2.8rem);letter-spacing:-.065em;line-height:1.06;margin:0;font-weight:600}
+.verification-badge{display:inline-flex;width:21px;height:21px;flex:none;color:var(--green)}
+.verification-badge svg{width:100%;height:100%;fill:currentColor}
+.verification-badge .badge-check{fill:none;stroke:var(--paper);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.hero-location{flex:none;display:grid;justify-items:end;gap:5px;color:var(--muted);font:400 .68rem var(--mono);line-height:1.4;text-align:right}
+.hero-location-label{display:inline-flex;align-items:center;gap:7px}
+.hero-location-label svg{width:15px;height:15px;fill:none;stroke:var(--green);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hero-location time{color:var(--ink);font:inherit;font-variant-numeric:tabular-nums}
+@media(max-width:650px){.hero-profile{align-items:flex-start;flex-direction:column;gap:12px}.hero-identity{gap:13px}.hero-location{justify-items:start;padding-left:71px;text-align:left}}
+.activity-header{min-height:48px;padding:6px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.activity-header h2{margin:0;color:var(--ink);font-size:1.4rem;line-height:1.2;font-weight:600;letter-spacing:-.045em}
+.activity-header .service-profile-link{min-height:34px;padding:0 2px 0 12px;justify-content:flex-end;white-space:nowrap}
+.waka-summary-lines{padding:10px 16px 12px;color:var(--muted);font-size:.78rem;line-height:1.5;display:grid;gap:4px}
+.waka-summary-lines p{margin:0}
+.waka-summary-lines strong{color:var(--ink);font-weight:600}
+@media(max-width:480px){
+  .github-section .github-header{min-height:44px;padding:6px 11px}
+  .github-header h2{font-size:1.2rem}
+  .github-header .service-profile-link{gap:6px;font-size:.59rem}
+  .github-section .contribution-wrap{padding:7px 11px 8px}
+  .github-section .github-month-labels{font-size:.52rem;min-height:16px;margin-bottom:3px}
+  .github-section .contribution-foot{flex-wrap:wrap;row-gap:5px}
+  .github-section .chart-legend{margin-left:auto}
+  .activity-header{min-height:44px;padding:6px 11px}
+  .activity-header h2{font-size:1.2rem}
+  .activity-header .service-profile-link{gap:6px;font-size:.59rem}
+  .waka-summary-lines{padding:8px 11px 10px;font-size:.68rem;overflow-wrap:anywhere}
+  .hero-profile{align-items:flex-start;flex-direction:column;gap:12px}
+  .hero-identity{gap:13px}
+  .hero-name-row{gap:7px}
+  .hero-name-row h1{font-size:1.55rem}
+  .verification-badge{width:18px;height:18px}
+  .hero-location{justify-items:start;padding-left:71px;text-align:left}
+}

@@ -11,9 +11,10 @@ export const personalInfo = {
 };
 
 export const skillGroups = [
-  { name: 'Frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux Toolkit', 'Vite'] },
+  { name: 'Frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux Toolkit', 'Vite', 'Tailwind CSS'] },
   { name: 'Backend', skills: ['Node.js', 'Express.js'] },
   { name: 'Languages', skills: ['Python', 'C', 'Java'] },
+  { name: 'Tools', skills: ['Markdown', 'Git', 'GitHub', 'VS Code'] },
 ];
 
 // Add verified projects here when they are ready to share.
