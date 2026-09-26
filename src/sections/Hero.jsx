@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/content';
 import AsciiTerminal from '../components/AsciiTerminal';
+import ProfileEasterEgg from '../components/ProfileEasterEgg';
 import SocialLinks from '../components/SocialLinks';
 
 export default function Hero() {
@@ -18,8 +19,8 @@ export default function Hero() {
   return <section className="hero page-shell" id="home" aria-labelledby="hero-title">
     <div className="hero-profile">
       <div className="hero-identity">
-        <img className="hero-avatar" src={`https://github.com/${personalInfo.githubUsername}.png`} alt="Saurabh Pandey’s GitHub profile avatar" onError={event => { event.currentTarget.hidden = true; }} />
-        <div className="hero-name-block"><div className="hero-name-row"><h1 id="hero-title">{personalInfo.name}</h1><span className="verification-badge" role="img" aria-label="Verified profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5 14.7 3l3.1-.1.9 3 2.6 1.6-.9 3.1.9 3.1-2.6 1.6-.9 3-3.1-.1-2.7 1.5L9.3 18l-3.1.1-.9-3-2.6-1.6.9-3.1-.9-3.1 2.6-1.6.9-3L9.3 3 12 1.5Z" /><path className="badge-check" d="m8.2 11.8 2.4 2.4 5.3-5.4" /></svg></span></div><p className="hero-role">{personalInfo.role}</p></div>
+        <ProfileEasterEgg />
+        <div className="hero-name-block"><div className="hero-name-row"><h1 id="hero-title">{personalInfo.name}</h1><span className="verification-badge" role="img" aria-label="Verified profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5 14.7 3l3.1-.1.9 3 2.6 1.6-.9 3.1.9 3.1-2.6 1.6-.9 3-3.1-.1-2.7 1.5L9.3 18l-3.1.1-.9-3-2.6-1.6.9-3.1-.9-3.1 2.6-1.6.9-3L9.3 3 12 1.5Z" /><path className="badge-check" d="m8.2 11.8 2.4 2.4 5.3-5.4" /></svg></span></div><p className="hero-role"><span data-text={personalInfo.role}>{personalInfo.role}</span></p></div>
       </div>
       <div className="hero-location">
         <span className="hero-location-label"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6.5" /><circle cx="10" cy="10" r="2" /><path d="M10 1v2M10 17v2M1 10h2M17 10h2" /></svg>Gurgaon, India</span>
