@@ -91,7 +91,7 @@ function DifficultyBreakdown({ profile }) {
 
   return <div className="leetcode-difficulty">
     <div className="leetcode-subheading">DIFFICULTY</div>
-    {rows.map(({ key, label, solved, total }) => <div className="leetcode-difficulty-row" key={key}>
+    {rows.map(({ key, label, solved, total }) => <div className={`leetcode-difficulty-row difficulty-${key}`} key={key}>
       <div className="leetcode-difficulty-meta"><span>{label}</span><span>{formatNumber(solved)}{total !== undefined ? ` / ${formatNumber(total)}` : ''}</span></div>
       {total > 0 && <div className="leetcode-progress-track" role="meter" aria-label={`${label} problems solved`} aria-valuemin="0" aria-valuemax={total} aria-valuenow={Math.min(solved, total)}><span style={{ width: `${Math.min(100, solved / total * 100)}%` }} /></div>}
     </div>)}

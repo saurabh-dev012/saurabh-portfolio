@@ -5,6 +5,7 @@ const icons = {
   linkedin: <path d="M5.3 8.3H1.8V22h3.5V8.3ZM3.55 2A2.05 2.05 0 1 0 3.6 6.1 2.05 2.05 0 0 0 3.55 2ZM22 13.9c0-4.13-2.2-6.05-5.14-6.05a4.45 4.45 0 0 0-4 2.2V8.3H9.4V22h3.46v-6.78c0-1.79.34-3.52 2.56-3.52 2.19 0 2.22 2.04 2.22 3.64V22H22v-8.1Z" />,
   instagram: <><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="17.6" cy="6.6" r="1.2" /></>,
   x: <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.88-7.41L5.6 22H2.47l7.24-8.28L1.9 2h6.4l4.4 6.76L18.9 2Zm-1.1 17.9h1.73L7.38 4H5.52l12.28 15.9Z" />,
+  leetcode: <path d="m15.7 3.2-6.1 6a4 4 0 0 0 0 5.7l6.1 5.9M8.8 12h11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />,
 };
 
 export default function SocialLinks({ iconOnly = false, order }) {

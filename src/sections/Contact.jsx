@@ -68,7 +68,7 @@ export default function Contact() {
       <div className="contact-follow-block">
         <h3>Follow &amp; connect.</h3>
         <p>Find me around the web.</p>
-        <SocialLinks iconOnly order={['GitHub', 'LinkedIn', 'X', 'Instagram']} />
+        <SocialLinks iconOnly order={['GitHub', 'LinkedIn', 'X', 'Instagram', 'LeetCode']} />
       </div>
     </div>
   </section>;

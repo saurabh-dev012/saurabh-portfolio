@@ -24,6 +24,7 @@ export const SOCIAL_LINKS = [
   { name: 'LinkedIn', url: LINKEDIN_URL, icon: 'linkedin' },
   { name: 'Instagram', url: INSTAGRAM_URL, icon: 'instagram' },
   { name: 'X', url: X_URL, icon: 'x' },
+  { name: 'LeetCode', url: LEETCODE_PROFILE_URL, icon: 'leetcode' },
 ];
 
 export const skillGroups = [
