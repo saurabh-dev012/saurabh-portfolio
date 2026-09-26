@@ -81,3 +81,57 @@ body{background:var(--paper)}
 .waka-footer a{font:400 .59rem var(--mono);color:var(--green);display:inline-flex;align-items:center;gap:6px}
 .waka-fallback{padding:14px 0}
 @media(max-width:480px){.waka-totals>div{padding-right:8px}.waka-totals>div+div{padding-left:9px}.waka-totals dt{font-size:.52rem}.waka-totals dd{font-size:.77rem}.waka-details{gap:14px}.waka-list ul{gap:5px 8px}.waka-list li{font-size:.62rem}}
+
+/* Reference inspired compact portfolio navigation */
+.site-header{height:72px;background:rgba(16,20,28,.84);border-bottom-color:rgba(156,166,181,.16)}
+.nav{gap:28px}
+.wordmark{font-size:1.02rem;font-weight:700;letter-spacing:-.075em;color:#f2f5fa;gap:0}
+.wordmark-period{color:var(--green)}
+.nav-links{gap:4px;font-size:.72rem;color:#aab3c1}
+.nav-links>a:not(.nav-profile){padding:8px 11px;border-radius:7px;transition:background-color .16s ease,color .16s ease}
+.nav-links>a:not(.nav-profile):hover{background:#1b2431;color:#f2f5fa}
+.nav-links .nav-profile{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;margin-left:7px;border:1px solid #344253;border-radius:7px;color:#e8edf5;transition:border-color .16s ease,background-color .16s ease}
+.nav-links .nav-profile:hover{border-color:#82cdf5;background:#192532;color:#fff}
+.nav-profile span{font-size:.85em}
+.nav-toggle{border:1px solid #344253;border-radius:7px}
+.nav-toggle:hover{background:#1b2431}
+.nav-toggle span{background:#e8edf5}
+@media(max-width:760px){
+  .site-header{height:66px}
+  .nav-links{top:65px;padding:8px 18px 14px;background:#10141c;border-bottom-color:#2a3342}
+  .nav-links>a:not(.nav-profile){padding:12px 4px;border-radius:0;border-bottom:1px solid #242d3a}
+  .nav-links>a:not(.nav-profile):hover{background:transparent;color:#82cdf5}
+  .nav-links .nav-profile{margin:10px 0 0;justify-content:center}
+}
+
+/* Two tier navigation based on the supplied reference screenshots */
+.site-header{height:auto;position:sticky;top:0;background:rgba(16,20,28,.96);border-bottom:0;backdrop-filter:blur(14px)}
+.site-header::after{content:"";display:block;height:8px;border-top:1px solid rgba(156,166,181,.18);background:repeating-linear-gradient(135deg,rgba(156,166,181,.07) 0 2px,transparent 2px 7px)}
+.nav-top{height:46px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(156,166,181,.12)}
+.nav-top .wordmark{font-size:.95rem;color:#e8edf5}
+.nav-socials{display:flex;align-items:center;gap:20px;color:#9ca6b5;font-size:.69rem}
+.nav-socials a{display:inline-flex;align-items:center;gap:6px;transition:color .16s ease}
+.nav-socials a:hover{color:#82cdf5}
+.nav-socials svg{width:14px;height:14px;fill:currentColor}
+.nav-socials a>span[aria-hidden="true"]{font-size:1rem;line-height:1;color:#82cdf5}
+.nav-socials a>span:last-of-type{color:inherit}
+.nav{height:58px;justify-content:flex-start;gap:0}
+.nav-links{height:100%;gap:40px;font-size:.91rem;font-weight:500;color:#d0d6e0}
+.nav-links>a:not(.nav-profile){padding:0;display:flex;align-items:center;height:100%;position:relative;border-radius:0;transition:color .16s ease}
+.nav-links>a:not(.nav-profile)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#82cdf5;transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+.nav-links>a:not(.nav-profile):hover{background:transparent;color:#82cdf5}
+.nav-links>a:not(.nav-profile):hover::after{transform:scaleX(1)}
+.nav-toggle{display:none}
+@media(max-width:760px){
+  .nav-top{height:44px}
+  .nav-socials{gap:13px}
+  .nav{height:54px;position:relative;justify-content:flex-end}
+  .nav-toggle{display:block;border:0;width:40px;height:40px;padding:10px;background:transparent}
+  .nav-toggle span{height:2px;border-radius:2px;margin:5px 0;background:#d0d6e0}
+  .nav-links{position:absolute;top:53px;left:-18px;right:-18px;height:auto;padding:8px 18px 14px;background:#10141c;border-bottom:1px solid #2a3342;display:grid;gap:0;visibility:hidden;opacity:0;transform:translateY(-5px);transition:opacity .18s,transform .18s,visibility .18s}
+  .nav-links.is-open{visibility:visible;opacity:1;transform:translateY(0)}
+  .nav-links>a:not(.nav-profile){height:auto;padding:12px 2px;border-bottom:1px solid rgba(156,166,181,.15)}
+  .nav-links>a:not(.nav-profile)::after{display:none}
+  .nav-links>a:not(.nav-profile):hover{color:#82cdf5}
+}
+@media(max-width:480px){.nav-top .wordmark{font-size:.88rem}.nav-socials{font-size:.63rem;gap:10px}.nav-socials a{gap:4px}}
