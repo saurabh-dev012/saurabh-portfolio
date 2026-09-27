@@ -13,7 +13,7 @@ export const personalInfo = {
 export const GITHUB_URL = personalInfo.github;
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/saurabh-pandey-685347384/';
 export const INSTAGRAM_URL = 'https://www.instagram.com/saurabhhh.1210?stkn=MXM2anJ4ZHI5MTJkaA%3D%3D';
-export const X_URL = 'https://x.com/saurabhp012';
+export const X_URL = 'https://x.com/saurabhhdev';
 export const HASHNODE_USERNAME = 'saurabhhdev';
 export const HASHNODE_PROFILE_URL = `https://hashnode.com/@${HASHNODE_USERNAME}`;
 export const LEETCODE_USERNAME = 'saurabhhdev';
@@ -35,5 +35,11 @@ export const skillGroups = [
   { name: 'Tools', skills: ['Markdown', 'Git', 'GitHub', 'VS Code'] },
 ];
 
-// Add verified projects here when they are ready to share.
-export const projects = [];
+export const projects = [
+  {
+    name: 'Nexhub',
+    description: 'GitHub exploration, built with React.',
+    live: 'https://saurabhhdev.github.io/Nexhub/',
+    code: 'https://github.com/saurabhhdev/Nexhub',
+  },
+];
